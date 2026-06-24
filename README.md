@@ -210,7 +210,7 @@ web03 | SUCCESS => { "ping": "pong" }
 db    | SUCCESS => { "ping": "pong" }
 ```
 
-**The lab is ready.** You can now proceed with the exercises.
+**The lab is ready.** You can now proceed with the [Excercises](playbooks/README.md).
 
 ## Teardown
 
