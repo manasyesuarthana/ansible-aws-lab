@@ -1,0 +1,33 @@
+all:
+  hosts:
+    web01:
+      ansible_host: [IP_ADDRESS]
+    web02:
+      ansible_host: [IP_ADDRESS]
+    web03:
+      ansible_user: ubuntu
+      ansible_host: [IP_ADDRESS]
+    db:
+      ansible_host: [IP_ADDRESS]
+
+  children:
+    webservers:
+      hosts:
+        web01:
+        web02:
+        web03:
+      vars:
+        ansible_user: ec2-user
+        ansible_private_key_file: webkey
+    dbservers:
+      hosts:
+        db:
+      vars:
+        ansible_user: ec2-user
+        ansible_private_key_file: dbkey
+      # group of groups: webservers and dbservers fall under the dc-oregon group
+    dc-oregon:
+      children:
+        webservers:
+        dbservers:
+    

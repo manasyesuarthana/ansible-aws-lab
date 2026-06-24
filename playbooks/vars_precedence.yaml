@@ -1,0 +1,18 @@
+- name: Understanding variables
+  hosts: all
+  become: yes
+  gather_facts: False
+  # vars:
+  #   USERNAME: alpha
+  #   COMM: Variable defined within the playbook
+  tasks:
+    - name: create user
+      ansible.builtin.user:
+        name: "{{USERNAME}}"
+        comment: "{{COMM}}"
+      register: usrout
+
+    - debug:
+        var: usrout.name
+    - debug:
+        var: usrout.comment

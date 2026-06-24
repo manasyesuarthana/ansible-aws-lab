@@ -1,0 +1,49 @@
+---
+- name: DB Server Setup
+  hosts: dbservers
+  become: true
+  # in playbook variables -> not good practice
+  vars:
+    db_name: electric
+    db_user: electro
+    db_pass: tesla
+  tasks:
+    - debug:
+        msg: "DB name is {{db_name}}"
+    - debug:
+        msg: "DB user is {{db_user}}"
+    - name: Install mariadb-server
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: present
+
+    - name: Start and enable mariadb service
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: Install PyMySQL
+      ansible.builtin.yum:
+        name: python3-PyMySQL
+        state: present
+
+    - name: Create a new database
+      ansible.mysql.mysql_db:
+        name: "{{db_name}}"
+        state: present
+        login_unix_socket: /var/lib/mysql/mysql.sock # mysql socket file path has to precisely be the same in the OS or else ansible won't work
+
+    - name: Create database user and the password for it
+      ansible.mysql.mysql_user:
+        name: "{{db_user}}"
+        password: "{{db_pass}}"
+        priv: '*.*:ALL'
+        state: present
+        login_unix_socket: /var/lib/mysql/mysql.sock
+      register: db_output
+
+    - name: Print db_output variables
+      debug:
+        var: db_output
+

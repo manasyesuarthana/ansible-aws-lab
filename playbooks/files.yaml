@@ -1,0 +1,9 @@
+---
+- name: Copy test file 
+  hosts: webservers
+  tasks:
+    - name: Copying flag.txt to webservers
+      copy:
+        src: ./flag.txt
+        dest: ~/flag.txt
+        backup: true

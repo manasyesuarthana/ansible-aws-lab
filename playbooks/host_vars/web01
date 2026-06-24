@@ -1,0 +1,2 @@
+USERNAME: web01
+COMM: Variable from the host_vars/web01 file

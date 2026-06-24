@@ -1,0 +1,4 @@
+USERNAME: commoner
+COMM: Variable from group_vars/all file
+ntp_pool_address: us.pool.ntp.org
+dir1: /opt/test21

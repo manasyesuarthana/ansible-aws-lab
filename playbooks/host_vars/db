@@ -1,0 +1,2 @@
+USERNAME: db
+COMM: Variable from the host_vars/db file

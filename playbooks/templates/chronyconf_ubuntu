@@ -1,0 +1,4 @@
+# /etc/chrony/sources.d/us-pools.sources
+# Managed by Ansible
+
+pool {{ ntp_pool_address }} iburst maxsources 4

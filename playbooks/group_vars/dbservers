@@ -1,0 +1,2 @@
+USERNAME: db-user
+COMM: Variable from the group_vars/dbservers file

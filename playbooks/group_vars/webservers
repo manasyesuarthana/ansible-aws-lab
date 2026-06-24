@@ -1,0 +1,2 @@
+USERNAME: web-user
+COMM: Variable from the group_vars/webservers file

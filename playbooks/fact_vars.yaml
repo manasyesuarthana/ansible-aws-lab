@@ -1,0 +1,17 @@
+---
+- name: Print fact variables
+  # gather_facts: false
+  hosts: all
+  tasks:
+    - name: Print all available gather_facts 
+      debug:
+        var: ansible_facts
+    - name: Print OS name
+      debug: 
+        var: ansible_distribution
+    - name: Print available memory in RAM
+      debug:
+        var: ansible_memory_mb.real.free
+    - name: Print Processor name
+      debug:
+        var: ansible_processor[2]
