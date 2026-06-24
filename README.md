@@ -2,6 +2,14 @@
 
 A complete hands-on lab for learning **Ansible** fundamentals using **AWS EC2** infrastructure provisioned with **Terraform**. This project walks through 16 progressive exercises: from basic inventory and ping tests to roles, templates, handlers, and AWS module usage.
 
+<br />
+
+<div align="center">
+  <img src="images/banner.webp" width="80%">
+</div>
+
+<br />
+
 ## Architecture Overview
 
 ```
